@@ -1,17 +1,37 @@
-'use client'
-import React, { useState } from "react";
+"use client";
+import React, { useState, useEffect } from "react";
 
 const Navbar = () => {
   const [activeItem, setActiveItem] = useState("Home");
+  const [scrolled, setScrolled] = useState(false);
 
   const navItems = ["Home", "About", "Projects", "Contact"];
 
+  // Add scroll event listener to detect when page is scrolled
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 10) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <nav className="h-16 bg-b text-zinc-100 sticky top-0 shadow-md px-6 flex justify-between items-center">
+    <nav
+      className={`h-16 sticky top-0 shadow-md px-6 flex justify-between items-center transition-all duration-300 z-50 ${
+        scrolled ? "bg-black/30 backdrop-blur-md" : "bg-black"
+      }`}
+    >
       {/* Logo */}
       <div className="flex items-center">
-        <h1 className="text-2xl font-bold">Portfolio</h1>
-        <div className="ml-1 h-2 w-2 bg-blue-500 rounded-full"></div>
+        <h1 className="text-2xl font-bold text-zinc-100">Portfolio</h1>
       </div>
 
       {/* Navigation Links */}
@@ -31,7 +51,7 @@ const Navbar = () => {
             {/* Simple underline with transition */}
             <span
               className={`absolute bottom-0 left-0 h-0.5 bg-blue-500 transition-all duration-300 ease-out ${
-                activeItem === item ? "w-full" : "w-0 group-hover:w-full"
+                activeItem === item ? "w-full" : "w-0 hover:w-full"
               }`}
             />
           </button>
