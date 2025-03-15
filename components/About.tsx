@@ -1,6 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Code2, Palette, Terminal } from "lucide-react";
 import TechStack from "./TechStack";
+import GoToProjects from "./Buttons/GoToProjects";
 
 const About = () => {
   const skills = [
@@ -23,9 +24,9 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-10 bg-muted/50">
-      <div className="container">
-        <h2 className="text-3xl font-bold text-center mb-6 px-4">
+    <div id="about" className="py-20 bg-muted/50 w-full h-screen ">
+      <div className="container mx-auto px-4">
+        <h2 className="text-4xl font-bold text-center mb-6 px-4">
           About{" "}
           <span className="bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent">
             Me
@@ -62,12 +63,14 @@ const About = () => {
             </Card>
           ))}
         </div>
-
-        <div className="overflow-hidden w-[100%] m-0">
-          <TechStack />
-        </div>
       </div>
-    </section>
+      <div className="overflow-hidden w-[100%] m-0">
+        <TechStack />
+      </div>
+      <div>
+        <GoToProjects />
+      </div>
+    </div>
   );
 };
 

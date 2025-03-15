@@ -14,21 +14,20 @@ const TechStack = () => {
     "AWS",
     "GraphQL",
     "Tailwind CSS",
-    "React Native",
+    "Python",
     "Tailwind",
     "Supabase",
-    "Python",
     "Django",
     "Firebase",
   ];
 
   return (
-    <div className="w-full overflow-hidden bg-black/20 py-8 mt-12">
+    <div className="w-full overflow-hidden bg-black/20 py-8 mt-20">
       <Marquee gradient={false} speed={50}>
         {technologies.map((tech) => (
           <div
             key={tech}
-            className="mx-4 text-xl font-semibold bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent transition-all duration-300 transform hover:scale-110 hover:-translate-y-1"
+            className="mx-6 text-xl font-semibold bg-gradient-to-r hover:cursor-pointer from-blue-500 to-cyan-400 bg-clip-text text-transparent transition-all duration-300 transform hover:scale-110 hover:-translate-y-1"
           >
             {tech}
           </div>
